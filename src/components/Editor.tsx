@@ -1,10 +1,10 @@
-import { useCallback, useContext } from "react";
-import CodeMirror from "@uiw/react-codemirror";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
-import { EditorContext } from "../contexts/EditorContext";
 import { ViewUpdate } from "@codemirror/view";
+import { EditorContext } from "@contexts/EditorContext";
 import { githubDark } from "@uiw/codemirror-theme-github";
+import CodeMirror from "@uiw/react-codemirror";
+import { useCallback, useContext } from "react";
 
 const Editor = () => {
   const { value, onChange } = useContext(EditorContext);
