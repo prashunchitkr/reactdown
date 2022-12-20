@@ -11,7 +11,7 @@ export const EditorContext = createContext<IEditorContext>({
 });
 
 export const EditorProvider = ({ children }: PropsWithChildren) => {
-  const [value, setValue] = useState("# Hello");
+  const [value, setValue] = useState("# Hello World");
   return (
     <EditorContext.Provider value={{ value, onChange: setValue }}>
       {children}
