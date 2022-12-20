@@ -1,24 +1,28 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
-import type { ViewUpdate } from "@codemirror/view";
+import { EditorContext } from "../contexts/EditorContext";
+import { ViewUpdate } from "@codemirror/view";
 
 const Editor = () => {
-  const onChange = useCallback((value: string, viewUpdate: ViewUpdate) => {
-    console.log(value, viewUpdate);
+  const { value, onChange } = useContext(EditorContext);
+
+  const updateValue = useCallback((value: string, _viewUpdate: ViewUpdate) => {
+    console.log(value);
+    onChange(value);
   }, []);
 
   return (
     <CodeMirror
       theme={vscodeDark}
-      value="# Welcome"
+      value={value}
       height="200px"
       extensions={[
         markdown({ base: markdownLanguage, codeLanguages: languages }),
       ]}
-      onChange={onChange}
+      onChange={updateValue}
     />
   );
 };
