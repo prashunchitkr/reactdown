@@ -1,0 +1,22 @@
+body,
+html,
+#root,
+.container,
+.editor {
+  height: 100%;
+}
+
+.preview,
+.editor {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+}
+
+.preview {
+  padding: 1em;
+  border-left: 2px solid #ccc;
+  overflow: scroll;
+}
